@@ -24,9 +24,7 @@ def ingest_players(years):
     
     df.to_sql('players', engine, if_exists='replace', index=False)
     
-    
-    
-    
+
 
 def ingest_weekly_stats(years):
     df = nfl.import_weekly_data(years)
