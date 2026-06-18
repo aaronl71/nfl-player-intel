@@ -1,44 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL Player Intel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav id="sidebar">
-        <input type="text" id="player-search" placeholder="Search players..." />
-        <p>Positions</p>
-        <ul>
-            <li>QB</li>
-            <li>RB</li>
-            <li>TE</li>
-            <li>WR</li>
-        </ul>
-    </nav>
 
-    <main id="dashboard">
-        <header id="player-header">
-            <h1>Player Name</h1>
-            <p>Team</p>
-            <p>Position</p>
-        </header>
+<nav id="sidebar">
+    <h2 id="sidebar-title">NFL Intel</h2>
+    <input type="text" id="player-search" placeholder="Search players..." />
+    <p class="sidebar-label">Position</p>
+    <div id="position-filters">
+        <button class="filter-btn active">QB</button>
+        <button class="filter-btn">RB</button>
+        <button class="filter-btn">WR</button>
+        <button class="filter-btn">TE</button>
+    </div>
+    <p class="sidebar-label">Recent</p>
+    <ul id="recent-players">
+        <li class="recent-player-item">Patrick Mahomes</li>
+        <li class="recent-player-item">Tyreek Hill</li>
+        <li class="recent-player-item">Justin Jefferson</li>
+    </ul>
+</nav>
 
-        <section id="prop-card">
+<main id="dashboard">
+
+    <header id="player-header">
+        <div id="player-info">
+            <div id="player-name-row">
+                <h1 id="player-name">Patrick Mahomes</h1>
+                <span class="badge badge-position">QB</span>
+            </div>
+            <p id="player-meta">Kansas City Chiefs &nbsp;·&nbsp; Age 29 &nbsp;·&nbsp; 7 yrs exp</p>
+        </div>
+        <div id="player-badges">
+            <div class="stat-badge">
+                <span class="stat-badge-label">PFF Grade</span>
+                <span class="stat-badge-value grade-elite">91.4</span>
+            </div>
+            <div class="stat-badge">
+                <span class="stat-badge-label">Value Rating</span>
+                <span class="stat-badge-value value-undervalued">Undervalued</span>
+            </div>
+            <div class="stat-badge">
+                <span class="stat-badge-label">Cap Hit</span>
+                <span class="stat-badge-value">$53.0M</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="prop-card" class="card">
+        <div class="card-header">
             <h2>Prop Projection</h2>
-            <p>Placeholder Stat</p>
-        </section>
+            <span class="card-tag">Week 14 vs LV</span>
+        </div>
+        <div class="stat-row-group">
+            <div class="stat-row">
+                <span class="stat-label">Pass Yards</span>
+                <span class="stat-value">287 <span class="stat-range">± 42</span></span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Pass TDs</span>
+                <span class="stat-value">2.4 <span class="stat-range">± 0.8</span></span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Completions</span>
+                <span class="stat-value">24.1 <span class="stat-range">± 3.2</span></span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Interceptions</span>
+                <span class="stat-value">0.6 <span class="stat-range">± 0.4</span></span>
+            </div>
+        </div>
+        <div class="shap-section">
+            <p class="sidebar-label" style="margin-bottom: 8px;">Top Factors</p>
+            <div class="shap-row">
+                <span class="shap-label">Opp coverage grade</span>
+                <div class="shap-bar-track"><div class="shap-bar positive" style="width: 85%"></div></div>
+            </div>
+            <div class="shap-row">
+                <span class="shap-label">Last 3-wk PFF trend</span>
+                <div class="shap-bar-track"><div class="shap-bar positive" style="width: 70%"></div></div>
+            </div>
+            <div class="shap-row">
+                <span class="shap-label">Wind speed</span>
+                <div class="shap-bar-track"><div class="shap-bar negative" style="width: 30%"></div></div>
+            </div>
+        </div>
+    </section>
 
-        <section id="valuation-card">
-            <h2>Roster Valuation</h2>
-            <p>Placeholder Stat</p>
-        </section>
-
-        <section id="scouting-report">
+    <section id="scouting-report" class="card">
+        <div class="card-header">
             <h2>Scouting Report</h2>
-            <p>Here is the explanation for the scouting report</p>
-        </section>
-    </main>
+            <span class="card-tag">AI Generated</span>
+        </div>
+        <p class="scouting-text">
+            Mahomes enters Week 14 as the clear-cut top fantasy option at quarterback, riding a three-week stretch where he's averaged 318 passing yards and 2.7 touchdowns per game. His PFF grade of 91.4 ranks first among all quarterbacks over that span, driven largely by elite performance under pressure.
+        </p>
+        <p class="scouting-text">
+            The Raiders present a vulnerable secondary ranked 28th in coverage grade over the last four weeks, surrendering 8.4 yards per attempt to opposing passers. Las Vegas has also struggled to generate consistent pressure, which should give Mahomes ample time in the pocket to attack all three levels of the field.
+        </p>
+        <p class="scouting-text">
+            The primary concern is wind — forecasts show 18 mph gusts at Arrowhead, which historically suppresses his deep ball volume by roughly 15%. Expect a higher-checkdown game plan, which caps the ceiling slightly but keeps the floor elevated.
+        </p>
+    </section>
+
+    <section id="valuation-card" class="card">
+        <div class="card-header">
+            <h2>Roster Valuation</h2>
+            <span class="card-tag">2025 Season</span>
+        </div>
+        <div id="valuation-grid">
+            <div class="val-stat">
+                <span class="val-stat-label">WAR Score</span>
+                <span class="val-stat-value accent">+4.2</span>
+            </div>
+            <div class="val-stat">
+                <span class="val-stat-label">Positional Percentile</span>
+                <span class="val-stat-value">94th</span>
+            </div>
+            <div class="val-stat">
+                <span class="val-stat-label">Production Score</span>
+                <span class="val-stat-value">88.3</span>
+            </div>
+            <div class="val-stat">
+                <span class="val-stat-label">Value vs Replacement</span>
+                <span class="val-stat-value accent">+$18.4M</span>
+            </div>
+            <div class="val-stat">
+                <span class="val-stat-label">Cap Hit % of Team</span>
+                <span class="val-stat-value">24.1%</span>
+            </div>
+            <div class="val-stat">
+                <span class="val-stat-label">Rating</span>
+                <span class="val-stat-value value-undervalued">Undervalued</span>
+            </div>
+        </div>
+    </section>
+
+</main>
 </body>
 </html>

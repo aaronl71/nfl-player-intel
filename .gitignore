@@ -3,7 +3,5 @@ __pycache__/
 *.pyc
 .env
 echo "nfl_intel.session.sql" >> .gitignore
-git add .gitignore
-git commit -m "Ignore SQLTools session file"
-git push origin mainnfl_intel.session.sql
 .vscode/
+CLAUDE.md
