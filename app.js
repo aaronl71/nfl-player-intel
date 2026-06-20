@@ -1,26 +1,4 @@
-const player = {
-    name: "Tyreek Hill",
-    team: "Miami Dolphins",
-    position: "WR",
-    age: 31,
-    years_exp: 9,
-    pff_grade: 88.2,
-    cap_hit: "$28.0M",
-    value_rating: "Undervalued",
-    projection: {
-        rec_yards: 112,
-        rec_tds: 1.2,
-        targets: 9.4,
-        receptions: 6.8
-    },
-    valuation: {
-        war_score: 3.1,
-        positional_percentile: "88th",
-        production_score: 84.1,
-        value_vs_replacement: "+$11.2M",
-        cap_hit_pct: "12.8%"
-    }
-}
+
 
 const players = [
     { name: "Tyreek Hill",      team: "Miami Dolphins",       position: "WR" },
