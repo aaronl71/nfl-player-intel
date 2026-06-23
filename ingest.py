@@ -61,8 +61,8 @@ def ingest_weekly_stats(years):
         'snap_count', 'snap_pct', 'routes_run', 'route_participation']]
     df.to_sql('weekly_stats', engine, if_exists='replace', index=False)
     
-##ingest_players([2020, 2021, 2022, 2023, 2024])
-##ingest_weekly_stats([2020, 2021, 2022, 2023, 2024])
+##ingest_players([2020, 2021, 2022, 2023, 2024, 2025])
+##ingest_weekly_stats([2020, 2021, 2022, 2023, 2024, 2025])
 
 def ingest_schedules(years):
     df = nfl.import_schedules(years)
@@ -80,5 +80,5 @@ def ingest_schedules(years):
         'weather_precip', 'primetime_flag', 'divisional_flag']]
     
     df.to_sql('schedules', engine, if_exists='replace', index=False)
-#ingest_schedules([2020,2021,2022,2023,2024])
+#ingest_schedules([2020,2021,2022,2023,2024,2-25])
 
