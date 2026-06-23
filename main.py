@@ -19,8 +19,22 @@ def search_players(search: str = ""):
         rows = conn.execute(text("SELECT * FROM players WHERE name ILIKE :search"), {"search": f"%{search}%"})
         return [dict(row._mapping) for row in rows] 
 
+@app.get("/players/{player_id}/full")
+def get_player_full(player_id: str):
+    with engine.connect() as conn:
+        row = conn.execute(text("""
+            SELECT p.*, c.aav, c.total_value, c.guaranteed_money
+            FROM players p
+            LEFT JOIN contracts c ON p.player_id = c.player_id
+            WHERE p.player_id = :player_id
+        """), {"player_id": player_id}).fetchone()
+        return dict(row._mapping)
+
 @app.get("/players/{player_id}")
 def get_player(player_id):
     with engine.connect() as conn:
         player = conn.execute(text("SELECT * FROM players where player_id = :player_id"), {"player_id": player_id}).fetchone()
         return dict(player._mapping)
+
+
+    

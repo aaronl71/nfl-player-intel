@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 import os
 
@@ -22,7 +22,7 @@ def scrape_overthecap():
         if len(cols) < 6:
             continue
         cols = row.find_all('td')
-        name = cols[0].text
+        name = cols[0].text.strip()
         position = cols[1].text
         team = cols[2].text
         total_value = cols[3].text
@@ -49,7 +49,11 @@ def scrape_overthecap():
     
     CONNECTION_STRING = "postgresql://aaronlevy@localhost:5432/nfl_intel"
     engine = create_engine(CONNECTION_STRING)
+    with engine.connect() as conn:
+        players_df = pd.read_sql(text("SELECT player_id, name FROM players"), conn)
+    df = df.merge(players_df, on='name', how='left')
     df.to_sql('contracts', engine, if_exists='replace', index=False)
+    
     print("Loaded to contracts table")
     
 scrape_overthecap()
